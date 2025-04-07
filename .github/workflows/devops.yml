@@ -15,14 +15,14 @@ on:
 env:
   BUILD_TYPE: stable
   BUILD_DATE: 202504
-	# Linux Containers projects
+  # Linux Containers projects
   DISTROBUILDER_TAG: "distrobuilder-3.1"
   INCUS_TAG: "main"
   INCUS_UI_CANONICAL_TAG: "incus-0.15.1"
   LXCFS_TAG: "v6.0.3"
   LXC_TAG: "v6.0.3"
 
-	# External dependencies
+  # External dependencies
   COWSQL_TAG: "v1.15.8"
   CRIU_TAG: "v4.1"
   EDK2_TAG: "edk2-stable202411"
