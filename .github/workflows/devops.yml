@@ -67,6 +67,7 @@ jobs:
           git config --global core.autocrlf false
 
       - name: Get the code
+        run: |
           mkdir /build/
           git clone https://github.com/lxc/distrobuilder /build/distrobuilder --depth 1 -b "${DISTROBUILDER_TAG}"
           git clone https://github.com/lxc/lxc /build/lxc --depth 1 -b "${LXC_TAG}"
