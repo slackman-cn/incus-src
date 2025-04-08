@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Fetch Stable Source
 
 # Controls when the workflow will run
 on:
@@ -13,15 +13,14 @@ on:
   workflow_dispatch:
   
 env:
-  BUILD_TYPE: stable
-  BUILD_DATE: 202504
+  SRC_TYPE: stable
+  SRC_DATE: 202504
   # Linux Containers projects
   DISTROBUILDER_TAG: "distrobuilder-3.1"
   INCUS_TAG: "main"
   INCUS_UI_CANONICAL_TAG: "incus-0.15.1"
   LXCFS_TAG: "v6.0.3"
   LXC_TAG: "v6.0.3"
-
   # External dependencies
   COWSQL_TAG: "v1.15.8"
   CRIU_TAG: "v4.1"
@@ -91,10 +90,10 @@ jobs:
           curl -sL "https://www.nasm.us/pub/nasm/releasebuilds/$(echo ${NASM_TAG} | cut -d- -f2)/${NASM_TAG}.tar.gz" | tar -C build/nasm/ -zx --strip-components=1
 
       - name: Package code
-        run: tar -czvf ${{github.workspace}}/build-bundle.tar.gz  build/
+        run: tar -czvf ${{github.workspace}}/stable-202504.tar.gz  build/
           
       - name: Upload
         uses: actions/upload-artifact@v4
         with:
-          name:  incus-dist
-          path: ${{github.workspace}}/build-bundle.tar.gz
+          name:  incus-src
+          path: ${{github.workspace}}/stable-202504.tar.gz
