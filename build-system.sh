@@ -7,13 +7,6 @@ set -ex
 GOLANG_TAG="linux-amd64"
 NODE_TAG="linux-x64"
 
-# Configure git
-git config --global user.email "slackman@disroot.org"
-git config --global user.name "slackman"
-git config --global --add advice.detachedHead false
-git config --global core.autocrlf false
-
-
 # Install dependencies
 apt-get install --no-install-recommends --yes \
     acpica-tools \
@@ -95,7 +88,6 @@ pip3 install tomli || pip3 install tomli --break-system-packages
 # Install Go
 curl -sL "https://go.dev/dl/go1.24.2.${GOLANG_TAG}.tar.gz" | tar -C /usr/local/ -zx
 go version
-
 
 # Install Rust
 curl -sL https://sh.rustup.rs -o install-rust.sh

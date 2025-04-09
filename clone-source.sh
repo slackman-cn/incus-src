@@ -4,6 +4,12 @@
 
 set -ex
 
+# Configure git
+git config --global user.email "slackman@disroot.org"
+git config --global user.name "slackman"
+git config --global --add advice.detachedHead false
+git config --global core.autocrlf false
+
 # Linux Containers projects
 DISTROBUILDER_TAG="distrobuilder-3.1"
 INCUS_TAG="main"
