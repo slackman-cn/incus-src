@@ -7,7 +7,8 @@ LABEL \
     maintainer="slackman.cn"
 
 ENV DEBIAN_FRONTEND=noninteractive \
-    TZ=Asia/Shanghai 
+    TZ=Asia/Shanghai \
+    PATH="/root/.cargo/bin:/usr/local/go/bin:/usr/local/node/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/local/sbin"
 
 RUN apt-get update && apt-get install -y --no-install-recommends tzdata \
     && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime  \
