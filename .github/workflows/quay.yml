@@ -52,7 +52,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          platforms: linux/amd64
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: quay.io/slackman/incus-src:latest,quay.io/slackman/incus-src:6.11
           outputs: type=image,name=target

@@ -7,6 +7,11 @@ set -ex
 GOLANG_TAG="linux-amd64"
 NODE_TAG="linux-x64"
 
+case $(uname -m) in
+  x86_64)  GOLANG_TAG="linux-amd64" NODE_TAG="linux-x64";;
+  aarch64) GOLANG_TAG="linux-arm64" NODE_TAG="linux-arm64";;
+esac
+
 # Install dependencies
 apt-get install --no-install-recommends --yes \
     acpica-tools \
@@ -95,4 +100,4 @@ bash install-rust.sh -y
 
 # Install Node
 mkdir /usr/local/node/
-curl -sL "https://nodejs.org/dist/v22.11.0/node-v22.11.0-${NODE_TAG}.tar.xz" | tar -C /usr/local/node/ -Jx --strip-components=1
+curl -sL "https://nodejs.org/dist/v18.20.8//node-v18.20.8-${NODE_TAG}.tar.xz" | tar -C /usr/local/node/ -Jx --strip-components=1
